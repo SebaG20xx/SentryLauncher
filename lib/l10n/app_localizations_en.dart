@@ -9,7 +9,7 @@ class AppLocalizationsEn extends AppLocalizations {
   AppLocalizationsEn([String locale = 'en']) : super(locale);
 
   @override
-  String get aboutFlauncher => 'About Arc Launcher';
+  String get aboutFlauncher => 'About Sentry Launcher';
 
   @override
   String get addCategory => 'Add category';
@@ -122,6 +122,33 @@ class AppLocalizationsEn extends AppLocalizations {
 
   @override
   String get hiddenApplications => 'Hidden Apps';
+
+  @override
+  String get keySentry => 'Home key sentry';
+
+  @override
+  String get keySentrySubtitle =>
+      'Captures HOME and blocks remote keys that open other launchers or system UI';
+
+  @override
+  String get keySentryOn => 'On';
+
+  @override
+  String get keySentryOff => 'Off';
+
+  @override
+  String get sentryWatchdog => 'Full sentry mode';
+
+  @override
+  String get sentryWatchdogSubtitle =>
+      'Background watchdog: covers rival launchers and brings Sentry back to the front';
+
+  @override
+  String get overlayPermissionNeeded =>
+      'Needs overlay permission — press to grant';
+
+  @override
+  String get usagePermissionNeeded => 'Needs usage access — press to grant';
 
   @override
   String get launcherSections => 'Sections';
@@ -251,7 +278,7 @@ class AppLocalizationsEn extends AppLocalizations {
 
   @override
   String get updateInstallPermissionBody =>
-      'Allow Arc Launcher to install unknown apps, then retry the update.';
+      'Allow Sentry Launcher to install unknown apps, then retry the update.';
 
   @override
   String get updateOpenPermissionSettingsButton => 'Open permission settings';
@@ -261,7 +288,7 @@ class AppLocalizationsEn extends AppLocalizations {
 
   @override
   String textAboutDialog(String repoUrl) {
-    return 'Arc Launcher is a customized open-source launcher for Android TV, based on FLauncher.\n\nDeveloped by Meddouri Badis.\nSource code available at $repoUrl.';
+    return 'Sentry Launcher is an open-source launcher for Android TV kiosks, based on Arc Launcher by Meddouri Badis and on FLauncher.\n\nSource code available at $repoUrl.';
   }
 
   @override

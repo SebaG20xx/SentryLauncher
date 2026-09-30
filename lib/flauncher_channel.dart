@@ -57,6 +57,18 @@ class FLauncherChannel {
 
   Future<bool> isDefaultLauncher() async => await _methodChannel.invokeMethod('isDefaultLauncher');
 
+  Future<bool> isKeySentryEnabled() async =>
+      await _methodChannel.invokeMethod('isKeySentryEnabled');
+
+  Future<void> openAccessibilitySettings() async =>
+      await _methodChannel.invokeMethod('openAccessibilitySettings');
+
+  Future<bool> checkOverlayPermission() async =>
+      await _methodChannel.invokeMethod('checkOverlayPermission');
+
+  Future<void> requestOverlayPermission() async =>
+      await _methodChannel.invokeMethod('requestOverlayPermission');
+
   Future<bool> checkForGetContentAvailability() async =>
       await _methodChannel.invokeMethod("checkForGetContentAvailability");
 

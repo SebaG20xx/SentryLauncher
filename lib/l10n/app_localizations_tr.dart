@@ -9,7 +9,7 @@ class AppLocalizationsTr extends AppLocalizations {
   AppLocalizationsTr([String locale = 'tr']) : super(locale);
 
   @override
-  String get aboutFlauncher => 'Arc Launcher Hakkında';
+  String get aboutFlauncher => 'Sentry Launcher Hakkında';
 
   @override
   String get addCategory => 'Kategori ekle';
@@ -123,6 +123,34 @@ class AppLocalizationsTr extends AppLocalizations {
 
   @override
   String get hiddenApplications => 'Gizli Uygulamalar';
+
+  @override
+  String get keySentry => 'Tuş koruyucusu';
+
+  @override
+  String get keySentrySubtitle =>
+      'HOME tuşunu yakalar ve diğer başlatıcıları veya sistem arayüzünü açan kumanda tuşlarını engeller';
+
+  @override
+  String get keySentryOn => 'Açık';
+
+  @override
+  String get keySentryOff => 'Kapalı';
+
+  @override
+  String get sentryWatchdog => 'Tam koruma modu';
+
+  @override
+  String get sentryWatchdogSubtitle =>
+      'Arka plan bekçisi: rakip başlatıcıları örter ve Sentry\'yi öne getirir';
+
+  @override
+  String get overlayPermissionNeeded =>
+      'Üstüne çizim izni gerekli — vermek için basın';
+
+  @override
+  String get usagePermissionNeeded =>
+      'Kullanım erişimi gerekli — vermek için basın';
 
   @override
   String get launcherSections => 'Bölümler';
@@ -252,7 +280,7 @@ class AppLocalizationsTr extends AppLocalizations {
 
   @override
   String get updateInstallPermissionBody =>
-      'Arc Launcher\'ın bilinmeyen uygulamaları yüklemesine izin verin, ardından güncellemeyi yeniden deneyin.';
+      'Sentry Launcher\'ın bilinmeyen uygulamaları yüklemesine izin verin, ardından güncellemeyi yeniden deneyin.';
 
   @override
   String get updateOpenPermissionSettingsButton => 'İzin ayarlarını aç';
@@ -263,7 +291,7 @@ class AppLocalizationsTr extends AppLocalizations {
 
   @override
   String textAboutDialog(String repoUrl) {
-    return 'Arc Launcher, FLauncher tabanlı, Android TV için özelleştirilmiş açık kaynaklı bir başlatıcıdır.\n\nGeliştiren: Meddouri Badis.\nKaynak kodu $repoUrl adresinde mevcuttur.';
+    return 'Sentry Launcher, Meddouri Badis\'in Arc Launcher\'ı ve FLauncher tabanlı, Android TV kiosklar için açık kaynaklı bir başlatıcıdır.\n\nKaynak kodu $repoUrl adresinde mevcuttur.';
   }
 
   @override

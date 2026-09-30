@@ -126,6 +126,34 @@ class AppLocalizationsEs extends AppLocalizations {
   String get hiddenApplications => 'Aplicaciones ocultas';
 
   @override
+  String get keySentry => 'Centinela de teclas';
+
+  @override
+  String get keySentrySubtitle =>
+      'Captura HOME y bloquea teclas del control que abren otros launchers o la interfaz del sistema';
+
+  @override
+  String get keySentryOn => 'Activado';
+
+  @override
+  String get keySentryOff => 'Desactivado';
+
+  @override
+  String get sentryWatchdog => 'Modo centinela completo';
+
+  @override
+  String get sentryWatchdogSubtitle =>
+      'Vigilante en segundo plano: tapa launchers rivales y trae Sentry al frente';
+
+  @override
+  String get overlayPermissionNeeded =>
+      'Necesita permiso de superposición — presiona para concederlo';
+
+  @override
+  String get usagePermissionNeeded =>
+      'Necesita acceso de uso — presiona para concederlo';
+
+  @override
   String get launcherSections => 'Secciones';
 
   @override
@@ -255,7 +283,7 @@ class AppLocalizationsEs extends AppLocalizations {
 
   @override
   String get updateInstallPermissionBody =>
-      'Permite que Arc Launcher instale apps desconocidas y vuelve a intentar la actualización.';
+      'Permite que Sentry Launcher instale apps desconocidas y vuelve a intentar la actualización.';
 
   @override
   String get updateOpenPermissionSettingsButton => 'Abrir ajustes de permisos';
@@ -266,7 +294,7 @@ class AppLocalizationsEs extends AppLocalizations {
 
   @override
   String textAboutDialog(String repoUrl) {
-    return 'Arc Launcher es un lanzador de código abierto personalizado para Android TV, basado en FLauncher.\n\nDesarrollado por Meddouri Badis.\nCódigo fuente disponible en $repoUrl.';
+    return 'Sentry Launcher es un lanzador de código abierto para kioscos con Android TV, basado en Arc Launcher de Meddouri Badis y en FLauncher.\n\nCódigo fuente disponible en $repoUrl.';
   }
 
   @override

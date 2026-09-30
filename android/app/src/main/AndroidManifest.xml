@@ -30,6 +30,16 @@
 
     <uses-permission android:name="android.permission.PACKAGE_USAGE_STATS"/>
 
+    <!-- Sentry mode: boot re-arm, foreground services, overlay, notifications. -->
+    <uses-permission android:name="android.permission.RECEIVE_BOOT_COMPLETED" />
+    <uses-permission android:name="android.permission.FOREGROUND_SERVICE" />
+    <uses-permission android:name="android.permission.FOREGROUND_SERVICE_SPECIAL_USE" />
+    <uses-permission android:name="android.permission.SYSTEM_ALERT_WINDOW" />
+    <uses-permission android:name="android.permission.POST_NOTIFICATIONS" />
+    <uses-permission android:name="android.permission.REORDER_TASKS" />
+    <!-- Exact alarms carry the background FGS-launch exemption (targetSdk 35). -->
+    <uses-permission android:name="android.permission.USE_EXACT_ALARM" />
+
     <uses-permission android:name="android.permission.READ_TV_LISTINGS"/>
     <uses-permission android:name="com.android.providers.tv.permission.READ_CHANNELS"/>
     <uses-permission android:name="com.android.providers.tv.permission.READ_EPG_DATA"/>
@@ -59,9 +69,10 @@
     <application
         android:allowBackup="true"
         android:banner="@drawable/banner"
+        android:enableOnBackInvokedCallback="true"
         android:fullBackupContent="true"
         android:icon="@mipmap/ic_launcher"
-        android:label="Arc Launcher">
+        android:label="Sentry Launcher">
         <!--
           Disable Impeller and fall back to the Skia renderer.
           On low-end Android TV GPUs (e.g. Fire TV Stick) the Impeller GLES
@@ -72,11 +83,13 @@
             android:value="false" />
         <activity
             android:name=".MainActivity"
+            android:clearTaskOnLaunch="true"
             android:configChanges="orientation|keyboardHidden|keyboard|screenSize|smallestScreenSize|locale|layoutDirection|fontScale|screenLayout|density|uiMode"
             android:exported="true"
             android:hardwareAccelerated="true"
             android:launchMode="singleTask"
             android:screenOrientation="landscape"
+            android:stateNotNeeded="true"
             android:theme="@style/LaunchTheme"
             android:windowSoftInputMode="adjustResize">
             <meta-data
@@ -97,7 +110,7 @@
         <service
             android:name=".ClockScreensaverService"
             android:exported="true"
-            android:label="Arc Launcher Clock"
+            android:label="Sentry Launcher Clock"
             android:permission="android.permission.BIND_DREAM_SERVICE">
             <intent-filter>
                 <action android:name="android.service.dreams.DreamService" />
@@ -107,6 +120,72 @@
                 android:name="android.service.dream"
                 android:resource="@xml/screensaver" />
         </service>
+
+        <!--
+          Key capture: filters remote-control keys (HOME, GUIDE,
+          DVR, SETTINGS, APP_SWITCH) and re-asserts Sentry Launcher when a rival
+          launcher takes the screen. Must be enabled by the user in
+          Settings > Accessibility.
+        -->
+        <service
+            android:name="com.omeda.arc.KeySentryService"
+            android:exported="false"
+            android:label="@string/key_sentry_label"
+            android:permission="android.permission.BIND_ACCESSIBILITY_SERVICE">
+            <intent-filter>
+                <action android:name="android.accessibilityservice.AccessibilityService" />
+            </intent-filter>
+            <meta-data
+                android:name="android.accessibilityservice"
+                android:resource="@xml/accessibility_service_config" />
+        </service>
+
+        <!--
+          Sentry watchdog: foreground service polling UsageStats to detect
+          rival launchers, covering them with an overlay and re-launching Arc.
+          Started from settings (opt-in), MainActivity and BootReceiver.
+        -->
+        <service
+            android:name="com.omeda.arc.SentryService"
+            android:directBootAware="true"
+            android:exported="false"
+            android:foregroundServiceType="specialUse">
+            <property
+                android:name="android.app.PROPERTY_SPECIAL_USE_FGS_SUBTYPE"
+                android:value="launcher_sentry" />
+        </service>
+
+        <!--
+          Watchdog of the watchdog, in a separate process: revives
+          SentryService every 5 s if the main process was killed.
+        -->
+        <service
+            android:name="com.omeda.arc.SentryHeartbeatService"
+            android:directBootAware="true"
+            android:exported="false"
+            android:foregroundServiceType="specialUse"
+            android:process=":heartbeat">
+            <property
+                android:name="android.app.PROPERTY_SPECIAL_USE_FGS_SUBTYPE"
+                android:value="sentry_heartbeat" />
+        </service>
+
+        <receiver
+            android:name="com.omeda.arc.BootReceiver"
+            android:directBootAware="true"
+            android:exported="true">
+            <intent-filter>
+                <action android:name="android.intent.action.BOOT_COMPLETED" />
+                <action android:name="android.intent.action.LOCKED_BOOT_COMPLETED" />
+                <action android:name="android.intent.action.QUICKBOOT_POWERON" />
+                <action android:name="com.htc.intent.action.QUICKBOOT_POWERON" />
+            </intent-filter>
+        </receiver>
+
+        <receiver
+            android:name="com.omeda.arc.SentryRestartReceiver"
+            android:directBootAware="true"
+            android:exported="false" />
 
         <meta-data
             android:name="flutterEmbedding"

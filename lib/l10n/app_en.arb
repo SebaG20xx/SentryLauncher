@@ -1,5 +1,5 @@
 {
-    "aboutFlauncher": "About Arc Launcher",
+    "aboutFlauncher": "About Sentry Launcher",
     "addCategory": "Add category",
     "addSection": "Add section",
     "alphabetical": "Alphabetical",
@@ -56,6 +56,14 @@
     "height": "Height",
     "hide": "Hide",
     "hiddenApplications": "Hidden Apps",
+"keySentry": "Home key sentry",
+"keySentrySubtitle": "Captures HOME and blocks remote keys that open other launchers or system UI",
+"keySentryOn": "On",
+"keySentryOff": "Off",
+"sentryWatchdog": "Full sentry mode",
+"sentryWatchdogSubtitle": "Background watchdog: covers rival launchers and brings Sentry back to the front",
+"overlayPermissionNeeded": "Needs overlay permission — press to grant",
+"usagePermissionNeeded": "Needs usage access — press to grant",
     "launcherSections": "Sections",
     "layout": "Layout",
     "loading": "Loading",
@@ -124,10 +132,10 @@
     },
     "updateInstallButton": "Install",
     "updateInstallPermissionTitle": "Installer permission required",
-    "updateInstallPermissionBody": "Allow Arc Launcher to install unknown apps, then retry the update.",
+    "updateInstallPermissionBody": "Allow Sentry Launcher to install unknown apps, then retry the update.",
     "updateOpenPermissionSettingsButton": "Open permission settings",
     "updateErrorGeneric": "Update check failed. Please try again.",
-    "textAboutDialog": "Arc Launcher is a customized open-source launcher for Android TV, based on FLauncher.\n\nDeveloped by Meddouri Badis.\nSource code available at {repoUrl}.",
+    "textAboutDialog": "Sentry Launcher is an open-source launcher for Android TV kiosks, based on Arc Launcher by Meddouri Badis and on FLauncher.\n\nSource code available at {repoUrl}.",
     "@textAboutDialog": {
         "placeholders": {
             "repoUrl": {

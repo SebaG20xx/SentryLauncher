@@ -74,8 +74,8 @@ bool isAbiSplitApk(String name) {
 }
 
 class UpdateService {
-  static const String _owner = "meddouribadis";
-  static const String _repo = "arclauncher";
+  static const String _owner = "SebaG20xx";
+  static const String _repo = "SentryLauncher";
   final FLauncherChannel _fLauncherChannel;
 
   UpdateService({FLauncherChannel? fLauncherChannel})
@@ -109,7 +109,7 @@ class UpdateService {
     try {
       final request = await httpClient.getUrl(uri);
       request.headers.set(HttpHeaders.acceptHeader, "application/octet-stream");
-      request.headers.set(HttpHeaders.userAgentHeader, "ArcLauncher-Updater");
+      request.headers.set(HttpHeaders.userAgentHeader, "SentryLauncher-Updater");
       final response = await request.close();
 
       if (response.statusCode != HttpStatus.ok) {
@@ -152,7 +152,7 @@ class UpdateService {
       final request = await httpClient.getUrl(uri);
       request.headers
           .set(HttpHeaders.acceptHeader, "application/vnd.github+json");
-      request.headers.set(HttpHeaders.userAgentHeader, "ArcLauncher-Updater");
+      request.headers.set(HttpHeaders.userAgentHeader, "SentryLauncher-Updater");
 
       final response = await request.close();
       if (response.statusCode != HttpStatus.ok) {

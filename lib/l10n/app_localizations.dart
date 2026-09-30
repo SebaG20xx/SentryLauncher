@@ -103,7 +103,7 @@ abstract class AppLocalizations {
   /// No description provided for @aboutFlauncher.
   ///
   /// In en, this message translates to:
-  /// **'About Arc Launcher'**
+  /// **'About Sentry Launcher'**
   String get aboutFlauncher;
 
   /// No description provided for @addCategory.
@@ -315,6 +315,54 @@ abstract class AppLocalizations {
   /// In en, this message translates to:
   /// **'Hidden Apps'**
   String get hiddenApplications;
+
+  /// No description provided for @keySentry.
+  ///
+  /// In en, this message translates to:
+  /// **'Home key sentry'**
+  String get keySentry;
+
+  /// No description provided for @keySentrySubtitle.
+  ///
+  /// In en, this message translates to:
+  /// **'Captures HOME and blocks remote keys that open other launchers or system UI'**
+  String get keySentrySubtitle;
+
+  /// No description provided for @keySentryOn.
+  ///
+  /// In en, this message translates to:
+  /// **'On'**
+  String get keySentryOn;
+
+  /// No description provided for @keySentryOff.
+  ///
+  /// In en, this message translates to:
+  /// **'Off'**
+  String get keySentryOff;
+
+  /// No description provided for @sentryWatchdog.
+  ///
+  /// In en, this message translates to:
+  /// **'Full sentry mode'**
+  String get sentryWatchdog;
+
+  /// No description provided for @sentryWatchdogSubtitle.
+  ///
+  /// In en, this message translates to:
+  /// **'Background watchdog: covers rival launchers and brings Sentry back to the front'**
+  String get sentryWatchdogSubtitle;
+
+  /// No description provided for @overlayPermissionNeeded.
+  ///
+  /// In en, this message translates to:
+  /// **'Needs overlay permission — press to grant'**
+  String get overlayPermissionNeeded;
+
+  /// No description provided for @usagePermissionNeeded.
+  ///
+  /// In en, this message translates to:
+  /// **'Needs usage access — press to grant'**
+  String get usagePermissionNeeded;
 
   /// No description provided for @launcherSections.
   ///
@@ -553,7 +601,7 @@ abstract class AppLocalizations {
   /// No description provided for @updateInstallPermissionBody.
   ///
   /// In en, this message translates to:
-  /// **'Allow Arc Launcher to install unknown apps, then retry the update.'**
+  /// **'Allow Sentry Launcher to install unknown apps, then retry the update.'**
   String get updateInstallPermissionBody;
 
   /// No description provided for @updateOpenPermissionSettingsButton.
@@ -571,7 +619,7 @@ abstract class AppLocalizations {
   /// No description provided for @textAboutDialog.
   ///
   /// In en, this message translates to:
-  /// **'Arc Launcher is a customized open-source launcher for Android TV, based on FLauncher.\n\nDeveloped by Meddouri Badis.\nSource code available at {repoUrl}.'**
+  /// **'Sentry Launcher is an open-source launcher for Android TV kiosks, based on Arc Launcher by Meddouri Badis and on FLauncher.\n\nSource code available at {repoUrl}.'**
   String textAboutDialog(String repoUrl);
 
   /// No description provided for @textEmptyCategory.

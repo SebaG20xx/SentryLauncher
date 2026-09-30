@@ -27,7 +27,7 @@ permissions:
 
 env:
   FLUTTER_VERSION: "3.41.9"
-  RELEASE_APK_FILENAME_PREFIX: arclauncher
+  RELEASE_APK_FILENAME_PREFIX: sentrylauncher
   ARTIFACT_RETENTION_DAYS: 1
 
 jobs:
@@ -196,7 +196,7 @@ jobs:
             "dist/${RELEASE_APK_FILENAME_PREFIX}-${TAG}-arm64-v8a.apk"
           cp release-apks/arc-launcher-armeabi-v7a-release.apk \
             "dist/${RELEASE_APK_FILENAME_PREFIX}-${TAG}-armeabi-v7a.apk"
-          echo "Arc Launcher v${TAG}" > release_notes.md
+          echo "Sentry Launcher v${TAG}" > release_notes.md
       - uses: softprops/action-gh-release@v2
         with:
           tag_name: ${{ steps.meta.outputs.tag }}

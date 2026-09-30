@@ -33,7 +33,7 @@ class LTvLauncherAboutDialog extends StatelessWidget {
     AppLocalizations localizations = AppLocalizations.of(context)!;
 
     return AboutDialog(
-      applicationName: "Arc Launcher",
+      applicationName: "Sentry Launcher",
       applicationVersion: "v${packageInfo.version} (${packageInfo.buildNumber})",
       applicationIcon: ClipRRect(
         borderRadius: BorderRadius.circular(12),
@@ -42,7 +42,7 @@ class LTvLauncherAboutDialog extends StatelessWidget {
       applicationLegalese: "Developed by Badis Meddouri\nBased on LTvLauncher © 2026 LeanBitLab",
       children: [
         SizedBox(height: 24),
-        Text(localizations.textAboutDialog("https://github.com/meddouribadis/arclauncher"))
+        Text(localizations.textAboutDialog("https://github.com/SebaG20xx/SentryLauncher"))
       ],
     );
   }

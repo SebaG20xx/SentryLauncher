@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="app_name">Sentry Launcher</string>
+    <string name="key_sentry_label">Sentry Launcher · Key Sentry</string>
+    <string name="accessibility_service_description">Lets Sentry Launcher capture the HOME key so the launcher always comes back to the front, and block remote keys (GUIDE, DVR, SETTINGS, recents) that would open other launchers or system UI.</string>
+    <string name="sentry_channel_name">Sentry service</string>
+    <string name="sentry_channel_description">Main interface protection service of Sentry Launcher</string>
+    <string name="sentry_notification_title">Sentry Launcher protection active</string>
+    <string name="sentry_notification_text">Interface protection running.</string>
+    <string name="sentry_restoring_interface">Restoring interface…</string>
+    <string name="sentry_overlay_returning_home">Going home, please wait…</string>
+    <string name="heartbeat_channel_name">Heartbeat</string>
+    <string name="heartbeat_channel_description">Watchdog process for Sentry Launcher</string>
+    <string name="heartbeat_notification_title">Sentry Launcher</string>
+    <string name="heartbeat_notification_text">Watchdog process active.</string>
+</resources>

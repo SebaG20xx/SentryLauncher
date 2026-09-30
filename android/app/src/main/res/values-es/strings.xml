@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="key_sentry_label">Sentry Launcher · Centinela de teclas</string>
+    <string name="accessibility_service_description">Permite a Sentry Launcher interceptar la tecla HOME para que el launcher siempre regrese al inicio, y bloquear teclas del control (GUIDE, DVR, AJUSTES, recientes) que abrirían otros launchers o la interfaz del sistema.</string>
+    <string name="sentry_channel_name">Servicio centinela</string>
+    <string name="sentry_channel_description">Servicio principal de protección de interfaz de Sentry Launcher</string>
+    <string name="sentry_notification_title">Protección de Sentry Launcher activa</string>
+    <string name="sentry_notification_text">Protección de interfaz en funcionamiento.</string>
+    <string name="sentry_restoring_interface">Restableciendo interfaz…</string>
+    <string name="sentry_overlay_returning_home">Volviendo al inicio, espere…</string>
+    <string name="heartbeat_channel_name">Latido</string>
+    <string name="heartbeat_channel_description">Proceso de vigilancia para Sentry Launcher</string>
+    <string name="heartbeat_notification_title">Sentry Launcher</string>
+    <string name="heartbeat_notification_text">Proceso de vigilancia activo.</string>
+</resources>

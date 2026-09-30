@@ -1,12 +1,14 @@
-# Arc Launcher
+# Sentry Launcher
 
 <picture>
-  <img alt="Arc Launcher Preview" src="docs/images/home.webp">
+  <img alt="Sentry Launcher Preview" src="docs/images/home.webp">
 </picture>
 
-[![Version](https://img.shields.io/github/v/release/meddouribadis/arclauncher?style=for-the-badge&color=7C4DFF&label=Version)](https://github.com/meddouribadis/arclauncher/releases/latest) [![Downloads](https://img.shields.io/github/downloads/meddouribadis/arclauncher/total?style=for-the-badge&color=7C4DFF&label=Downloads)](https://github.com/meddouribadis/arclauncher/releases) [![Stars](https://img.shields.io/github/stars/meddouribadis/arclauncher?style=for-the-badge&color=7C4DFF)](https://github.com/meddouribadis/arclauncher/stargazers)
+[![Version](https://img.shields.io/github/v/release/SebaG20xx/SentryLauncher?style=for-the-badge&color=7C4DFF&label=Version)](https://github.com/SebaG20xx/SentryLauncher/releases/latest) [![Downloads](https://img.shields.io/github/downloads/SebaG20xx/SentryLauncher/total?style=for-the-badge&color=7C4DFF&label=Downloads)](https://github.com/SebaG20xx/SentryLauncher/releases) [![Stars](https://img.shields.io/github/stars/SebaG20xx/SentryLauncher?style=for-the-badge&color=7C4DFF)](https://github.com/SebaG20xx/SentryLauncher/stargazers)
 
-**Arc Launcher** is a fork of [LTvLauncher](https://github.com/LeanBitLab/LtvLauncher) (originally by [etienn01](https://gitlab.com/flauncher/flauncher)) - an open-source alternative launcher for Android TV.
+**Sentry Launcher** is a fork of [Arc Launcher](https://github.com/meddouribadis/arclauncher) for Android TV kiosk boxes. It adds a sentry mode that keeps the launcher in front: it captures the HOME key, blocks remote keys that open other launchers, and brings Sentry back when another launcher takes the screen.
+
+Arc Launcher is itself a fork of [LTvLauncher](https://github.com/LeanBitLab/LtvLauncher) (originally by [etienn01](https://gitlab.com/flauncher/flauncher)) - an open-source alternative launcher for Android TV.
 
 This customized version introduces a modern smart TV-style grid layout, usability enhancements, and UX improvements by [meddouribadis](https://github.com/meddouribadis/LtvLauncher).
 

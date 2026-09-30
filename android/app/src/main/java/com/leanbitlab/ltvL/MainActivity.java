@@ -20,6 +20,7 @@ package com.omeda.arc;
 
 import android.content.Context;
 import android.content.Intent;
+import android.content.SharedPreferences;
 import android.content.pm.PackageManager;
 import android.content.pm.*;
 import android.graphics.Bitmap;
@@ -30,6 +31,7 @@ import android.net.ConnectivityManager;
 import android.net.NetworkCapabilities;
 import android.net.Uri;
 import android.os.Build;
+import android.os.Bundle;
 import android.provider.MediaStore;
 import android.provider.Settings;
 import android.util.Pair;
@@ -78,7 +80,37 @@ public class MainActivity extends FlutterActivity {
     private final String NETWORK_EVENT_CHANNEL = "me.efesser.flauncher/event_network";
     private static final String PERMISSION_READ_TV_LISTINGS = "android.permission.READ_TV_LISTINGS";
     private static final int REQUEST_CODE_READ_TV_LISTINGS = 1001;
+    private static final int REQUEST_CODE_POST_NOTIFICATIONS = 2001;
     private static final String COLUMN_ASPECT_RATIO = "aspect_ratio";
+
+    @Override
+    protected void onCreate(Bundle savedInstanceState) {
+        super.onCreate(savedInstanceState);
+        requestNotificationsPermissionIfNeeded();
+        // Sentry mode is always on (hand-distributed kiosk boxes): re-arm the
+        // watchdog at every launch. Missing permissions degrade gracefully.
+        try {
+            startForegroundService(new Intent(this, SentryService.class));
+        } catch (Exception ignored) {
+        }
+    }
+
+    /** Android 13+: ask for POST_NOTIFICATIONS once so the restore fallback is visible. */
+    private void requestNotificationsPermissionIfNeeded() {
+        if (Build.VERSION.SDK_INT < 33
+                || ActivityCompat.checkSelfPermission(this, Manifest.permission.POST_NOTIFICATIONS)
+                        == PackageManager.PERMISSION_GRANTED) {
+            return;
+        }
+        SharedPreferences prefs = getSharedPreferences("main_prefs", MODE_PRIVATE);
+        if (prefs.getBoolean("notifications_permission_asked", false)) {
+            return;
+        }
+        prefs.edit().putBoolean("notifications_permission_asked", true).apply();
+        ActivityCompat.requestPermissions(this,
+                new String[]{Manifest.permission.POST_NOTIFICATIONS},
+                REQUEST_CODE_POST_NOTIFICATIONS);
+    }
 
     @Override
     public void configureFlutterEngine(@NonNull FlutterEngine flutterEngine) {
@@ -187,6 +219,16 @@ public class MainActivity extends FlutterActivity {
                     } else {
                         result.success(new byte[0]);
                     }
+                }
+                case "isKeySentryEnabled" -> result.success(KeySentryService.isEnabled(this));
+                case "openAccessibilitySettings" -> {
+                    KeySentryService.openSettings(this);
+                    result.success(null);
+                }
+                case "checkOverlayPermission" -> result.success(Settings.canDrawOverlays(this));
+                case "requestOverlayPermission" -> {
+                    requestOverlayPermission();
+                    result.success(null);
                 }
                 default -> throw new IllegalArgumentException("Unknown method: " + call.method);
             }
@@ -647,6 +689,12 @@ public class MainActivity extends FlutterActivity {
 
     private void requestUsageStatsPermission() {
         Intent intent = new Intent(Settings.ACTION_USAGE_ACCESS_SETTINGS);
+        tryStartActivity(intent);
+    }
+
+    private void requestOverlayPermission() {
+        Intent intent = new Intent(Settings.ACTION_MANAGE_OVERLAY_PERMISSION,
+                Uri.parse("package:" + getPackageName()));
         tryStartActivity(intent);
     }
 
